@@ -5,12 +5,12 @@ namespace OnCloud\Dinero\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \VendorName\Skeleton\Skeleton
+ * @see \OnCloud\Dinero\Dinero
  */
 class Dinero extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \VendorName\Skeleton\Skeleton::class;
+        return \OnCloud\Dinero\Dinero::class;
     }
 }
