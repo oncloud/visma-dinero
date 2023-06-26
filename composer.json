@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
+    "name": "oncloud/visma-dinero",
     "description": ":package_description",
     "keywords": [
         ":vendor_name",
         "laravel",
         ":package_slug"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/oncloud/visma-dinero",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Jimmi Hansen",
+            "email": "jh@oncloud.dk",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "OnCloud\\Dinero\\": "src/",
+            "OnCloud\\Dinero\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "OnCloud\\Dinero\\": "tests/"
         }
     },
     "scripts": {

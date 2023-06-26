@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace OnCloud\Dinero;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use VendorName\Skeleton\Commands\SkeletonCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class DineroServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

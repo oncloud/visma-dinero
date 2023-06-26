@@ -1,13 +1,13 @@
 <?php
 
-namespace VendorName\Skeleton\Facades;
+namespace OnCloud\Dinero\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \VendorName\Skeleton\Skeleton
  */
-class Skeleton extends Facade
+class Dinero extends Facade
 {
     protected static function getFacadeAccessor()
     {
