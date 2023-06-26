@@ -4,7 +4,7 @@ namespace OnCloud\Dinero;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use OnCloud\Dinero\Commands\DineroCommand;
 
 class DineroServiceProvider extends PackageServiceProvider
 {
@@ -16,10 +16,10 @@ class DineroServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('dinero')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_dinero_table')
+            ->hasCommand(DineroCommand::class);
     }
 }
