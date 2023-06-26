@@ -2,9 +2,9 @@
 
 namespace OnCloud\Dinero;
 
+use OnCloud\Dinero\Commands\DineroCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use OnCloud\Dinero\Commands\DineroCommand;
 
 class DineroServiceProvider extends PackageServiceProvider
 {
