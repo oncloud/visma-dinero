@@ -4,8 +4,6 @@ namespace OnCloud\Dinero;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Spatie\LaravelPackageTools\Package;
-use OnCloud\Dinero\Commands\DineroCommand;
 
 class DineroServiceProvider extends ServiceProvider
 {
