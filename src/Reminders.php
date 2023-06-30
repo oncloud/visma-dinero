@@ -4,5 +4,4 @@ namespace OnCloud\Dinero;
 
 class Reminders
 {
-
 }

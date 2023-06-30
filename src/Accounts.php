@@ -45,7 +45,7 @@ class Accounts
             ->json();
     }
 
-    public function createDeposit($number,$name, $registrationNumber, $accountNumber,$swiftNumber,$ibanNumber)
+    public function createDeposit($number, $name, $registrationNumber, $accountNumber, $swiftNumber, $ibanNumber)
     {
         return Dinero::client()
             ->post('/accounts/deposit', [
