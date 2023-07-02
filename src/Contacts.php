@@ -128,7 +128,6 @@ class Contacts
     /**
      * Retrieves the notes for the contact with the given id.
      *
-     * @param string $guid
      * @return mixed
      */
     public function listContactNotes(string $guid)
@@ -141,8 +140,6 @@ class Contacts
     /**
      * Retrieves the notes for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
      * @return mixed
      */
     public function getContactNote(string $guid, string $noteGuid)
@@ -152,11 +149,9 @@ class Contacts
             ->json();
     }
 
-/**
+    /**
      * Creates a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $text
      * @return mixed
      */
     public function createContactNote(string $guid, string $text)
@@ -171,9 +166,6 @@ class Contacts
     /**
      * Updates a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
-     * @param string $text
      * @return mixed
      */
     public function updateContactNote(string $guid, string $noteGuid, string $text)
@@ -188,8 +180,6 @@ class Contacts
     /**
      * Deletes a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
      * @return mixed
      */
     public function deleteContactNote(string $guid, string $noteGuid)
@@ -198,6 +188,4 @@ class Contacts
             ->delete('/contacts/'.$guid.'/notes/'.$noteGuid)
             ->json();
     }
-
-
 }
