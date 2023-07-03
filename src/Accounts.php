@@ -9,8 +9,6 @@ class Accounts
     /**
      * List entry accounts. Get the list of entry accounts for the organization.
      *
-     * @param string|null $fields
-     * @param string|null $categoryFilter
      * @return array|mixed
      */
     public function getEntry(string $fields = null, string $categoryFilter = null)
@@ -27,7 +25,6 @@ class Accounts
     /**
      * List purchase accounts. Get the list of purchase accounts for the organization.
      *
-     * @param string|null $fields
      * @return array|mixed
      */
     public function getPurchase(string $fields = null)
@@ -43,7 +40,6 @@ class Accounts
     /**
      * List deposit accounts. Get the list of deposit accounts for the organization.
      *
-     * @param string|null $fields
      * @return array|mixed
      */
     public function getDeposit(string $fields = null)
@@ -66,9 +62,6 @@ class Accounts
     /**
      * Create entry account. Create a new entry account for the organization.
      *
-     * @param int $number
-     * @param string $name
-     * @param string $vatCode
      * @return array|mixed
      */
     public function createEntry(int $number, string $name, string $vatCode)
@@ -85,12 +78,6 @@ class Accounts
     /**
      * Create deposit account. Create a new deposit account for the organization.
      *
-     * @param int $number
-     * @param string $name
-     * @param string|null $registrationNumber
-     * @param string|null $accountNumber
-     * @param string|null $swiftNumber
-     * @param string|null $ibanNumber
      * @return array|mixed
      */
     public function createDeposit(int $number, string $name, string $registrationNumber = null, string $accountNumber = null, string $swiftNumber = null, string $ibanNumber = null)

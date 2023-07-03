@@ -8,10 +8,6 @@ class Entry
 {
     /**
      * List entries. Get a list of Entries for a given period.
-     *
-     * @param string|null $fromDate
-     * @param string|null $toDate
-     * @param string|null $includePrimo
      */
     public function list(string $fromDate = null, string $toDate = null, string $includePrimo = null)
     {
@@ -31,10 +27,6 @@ class Entry
      * current total for that account and accounting year, not the changes made in the time range. The guid of a primo
      * entry will be the same for a given pair of an account and an accounting year, i.e. the guid of a primo entry on
      * account 2000 in 2018 will never change, but the value might be updated.
-     *
-     * @param string|null $fromDate
-     * @param string|null $toDate
-     * @param string|null $includePrimo
      */
     public function listChanges(string $fromDate = null, string $toDate = null, string $includePrimo = null)
     {

@@ -8,14 +8,6 @@ class Contacts
 {
     /**
      * ListRetrieves a list of contacts for the organization ordered by UpdatedAt.
-     *
-     * @param string|null $fields
-     * @param string|null $queryFilter
-     * @param string|null $changesSince
-     * @param string|null $deletedOnly
-     * @param int|null $page
-     * @param int|null $pageSize
-     * @return mixed
      */
     public function list(string $fields = null, string $queryFilter = null, string $changesSince = null, string $deletedOnly = null, int $page = null, int $pageSize = null): mixed
     {
@@ -142,11 +134,6 @@ class Contacts
     /**
      * Retrieves the notes for the contact with the given id.
      *
-     * @param string $guid
-     * @param string|null $fields
-     * @param string|null $deletedOnly
-     * @param int|null $page
-     * @param int|null $pageSize
      * @return mixed
      */
     public function listContactNotes(string $guid, string $fields = null, string $deletedOnly = null, int $page = null, int $pageSize = null)
@@ -165,8 +152,6 @@ class Contacts
     /**
      * Retrieves the notes for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
      * @return mixed
      */
     public function getContactNote(string $guid, string $noteGuid)
@@ -176,11 +161,9 @@ class Contacts
             ->json();
     }
 
-/**
+    /**
      * Creates a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $text
      * @return mixed
      */
     public function createContactNote(string $guid, string $text)
@@ -195,9 +178,6 @@ class Contacts
     /**
      * Updates a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
-     * @param string $text
      * @return mixed
      */
     public function updateContactNote(string $guid, string $noteGuid, string $text)
@@ -212,8 +192,6 @@ class Contacts
     /**
      * Deletes a note for the contact with the given id.
      *
-     * @param string $guid
-     * @param string $noteGuid
      * @return mixed
      */
     public function deleteContactNote(string $guid, string $noteGuid)
@@ -222,6 +200,4 @@ class Contacts
             ->delete('/contacts/'.$guid.'/notes/'.$noteGuid)
             ->json();
     }
-
-
 }

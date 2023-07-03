@@ -9,7 +9,6 @@ class Files
     /**
      * Download the specified file. Returns the file with a certain file guid.
      *
-     * @param string $fileGuid
      * @return mixed
      */
     public function get(string $fileGuid)
@@ -22,12 +21,6 @@ class Files
     /**
      * List files. Lists all files in file archive.
      *
-     * @param array $extensions
-     * @param string|null $uploadedBefore
-     * @param string|null $uploadedAfter
-     * @param int|null $fileStatus
-     * @param int|null $page
-     * @param int|null $pageSize
      * @return mixed
      */
     public function list(array $extensions = [], string $uploadedBefore = null, string $uploadedAfter = null, int $fileStatus = null, int $page = null, int $pageSize = null)
@@ -44,5 +37,4 @@ class Files
             ->get('/files')
             ->json();
     }
-
 }
