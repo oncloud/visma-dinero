@@ -6,23 +6,52 @@ use OnCloud\Dinero\Facades\Dinero;
 
 class Accounts
 {
-    public function getEntry()
+    /**
+     * List entry accounts. Get the list of entry accounts for the organization.
+     *
+     * @param string|null $fields
+     * @param string|null $categoryFilter
+     * @return array|mixed
+     */
+    public function getEntry(string $fields = null, string $categoryFilter = null)
     {
         return Dinero::client()
+            ->withQueryParameters([
+                'fields' => $fields,
+                'categoryFilter' => $categoryFilter,
+            ])
             ->get('/accounts/entry')
             ->json();
     }
 
-    public function getPurchase()
+    /**
+     * List purchase accounts. Get the list of purchase accounts for the organization.
+     *
+     * @param string|null $fields
+     * @return array|mixed
+     */
+    public function getPurchase(string $fields = null)
     {
         return Dinero::client()
+            ->withQueryParameters([
+                'fields' => $fields,
+            ])
             ->get('/accounts/purchase')
             ->json();
     }
 
-    public function getDeposit()
+    /**
+     * List deposit accounts. Get the list of deposit accounts for the organization.
+     *
+     * @param string|null $fields
+     * @return array|mixed
+     */
+    public function getDeposit(string $fields = null)
     {
         return Dinero::client()
+            ->withQueryParameters([
+                'fields' => $fields,
+            ])
             ->get('/accounts/deposit')
             ->json();
     }
@@ -34,7 +63,15 @@ class Accounts
             ->json();
     }
 
-    public function createEntry($number, $name, $vatCode)
+    /**
+     * Create entry account. Create a new entry account for the organization.
+     *
+     * @param int $number
+     * @param string $name
+     * @param string $vatCode
+     * @return array|mixed
+     */
+    public function createEntry(int $number, string $name, string $vatCode)
     {
         return Dinero::client()
             ->post('/accounts/entry', [
@@ -45,7 +82,18 @@ class Accounts
             ->json();
     }
 
-    public function createDeposit($number, $name, $registrationNumber, $accountNumber, $swiftNumber, $ibanNumber)
+    /**
+     * Create deposit account. Create a new deposit account for the organization.
+     *
+     * @param int $number
+     * @param string $name
+     * @param string|null $registrationNumber
+     * @param string|null $accountNumber
+     * @param string|null $swiftNumber
+     * @param string|null $ibanNumber
+     * @return array|mixed
+     */
+    public function createDeposit(int $number, string $name, string $registrationNumber = null, string $accountNumber = null, string $swiftNumber = null, string $ibanNumber = null)
     {
         return Dinero::client()
             ->post('/accounts/deposit', [
