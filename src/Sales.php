@@ -9,18 +9,6 @@ class Sales
     /**
      * List invoices and credit notes
      *
-     * @param string|null $startDate
-     * @param string|null $endDate
-     * @param string|null $fields
-     * @param string|null $freeTextSearch
-     * @param string|null $statusFilter
-     * @param string|null $queryFilter
-     * @param string|null $changesSince
-     * @param string|null $deletedOnly
-     * @param int|null $page
-     * @param int|null $pageSize
-     * @param string|null $sort
-     * @param string|null $sortOrder
      * @return mixed
      */
     public function list(string $startDate = null, string $endDate = null, string $fields = null, string $freeTextSearch = null,
