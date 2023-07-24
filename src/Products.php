@@ -92,6 +92,16 @@ class Products
 
     /**
      * Create product. Add a new product to organization.
+     *
+     * @param int $baseAmountValue
+     * @param int $quantity
+     * @param int $accountNumber
+     * @param string $unit
+     * @param string|null $productNumber
+     * @param string|null $name
+     * @param string|null $externalReference
+     * @param string|null $comment
+     * @return array|mixed
      */
     public function create(int $baseAmountValue, int $quantity, int $accountNumber, string $unit, string $productNumber = null,
                            string $name = null, string $externalReference = null, string $comment = null)
