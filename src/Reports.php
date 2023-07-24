@@ -7,12 +7,6 @@ class Reports
     /**
      * Get saldo balance report
      *
-     * @param string $accountYear
-     * @param string|null $showZeroAccount
-     * @param string|null $showAccountNo
-     * @param string|null $includeSummeryAccount
-     * @param string|null $includeLedgerEntries
-     * @param string|null $showVatType
      * @return mixed
      */
     public function getSaldoBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
@@ -33,12 +27,6 @@ class Reports
     /**
      * Get result report
      *
-     * @param string $accountYear
-     * @param string|null $showZeroAccount
-     * @param string|null $showAccountNo
-     * @param string|null $includeSummeryAccount
-     * @param string|null $includeLedgerEntries
-     * @param string|null $showVatType
      * @return mixed
      */
     public function getResultReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
@@ -59,15 +47,10 @@ class Reports
     /**
      * Get Primo balance report
      *
-     * @param string $accountYear
-     * @param string|null $showZeroAccount
-     * @param string|null $showAccountNo
-     * @param string|null $includeSummeryAccount
-     * @param string|null $showVatType
      * @return mixed
      */
     public function getPrimoBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-                                          string $includeSummeryAccount = null, string $showVatType = null)
+        string $includeSummeryAccount = null, string $showVatType = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -83,16 +66,10 @@ class Reports
     /**
      * Get balance report
      *
-     * @param string $accountYear
-     * @param string|null $showZeroAccount
-     * @param string|null $showAccountNo
-     * @param string|null $includeSummeryAccount
-     * @param string|null $includeLedgerEntries
-     * @param string|null $showVatType
      * @return mixed
      */
     public function getBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-                                     string $includeSummeryAccount = null, string $includeLedgerEntries = null, string $showVatType = null)
+        string $includeSummeryAccount = null, string $includeLedgerEntries = null, string $showVatType = null)
     {
         return Dinero::client()
             ->withQueryParameters([
