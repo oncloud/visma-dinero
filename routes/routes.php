@@ -9,5 +9,5 @@ Route::post('/dinero/callback', function (Request $request) {
     if (isset($response['access_token'])) {
         dd($response);
     }
-    dd($request->code,$response);
+    dd($request->code, $response);
 })->withoutMiddleware(VerifyCsrfToken::class);

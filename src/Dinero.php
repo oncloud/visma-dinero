@@ -10,7 +10,6 @@ class Dinero
     public static $baseUrl = 'https://api.dinero.dk/';
 
     /**
-     * @param string $apiVersion
      * @return PendingRequest
      */
     public function client(string $apiVersion = 'v1')
@@ -21,28 +20,29 @@ class Dinero
 
     /**
      * Make a function to get a link for the user to login to Dinero.
+     *
      * @return string
      */
     public function authenticate()
     {
-        return redirect('https://connect.visma.com/connect/authorize?client_id='.config('dinero.client_id').'&response_mode=form_post&response_type=code&scope=dineropublicapi:read+dineropublicapi:write+offline_access&redirect_uri='.config('dinero.redirect_url','http://localhost/dinero/callback').'&ui_locales=da-DK');
+        return redirect('https://connect.visma.com/connect/authorize?client_id='.config('dinero.client_id').'&response_mode=form_post&response_type=code&scope=dineropublicapi:read+dineropublicapi:write+offline_access&redirect_uri='.config('dinero.redirect_url', 'http://localhost/dinero/callback').'&ui_locales=da-DK');
     }
 
     /**
      * Exchange the code for an access token.
-     * @param string $code
+     *
      * @return array
      */
     public function getAccessToken(string $code)
     {
         return Http::asForm()
-            ->withHeader('Content-Type','application/x-www-form-urlencoded')
-            ->post('https://connect.visma.com/connect/token',[
-            'grant_type' => 'authorization_code',
-            'code' => $code,
-            'redirect_uri' => 'http://localhost/dinero/callback',
-            'client_id' => config('dinero.client_id'),
-            'client_secret' => config('dinero.client_secret'),
-        ])->json();
+            ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+            ->post('https://connect.visma.com/connect/token', [
+                'grant_type' => 'authorization_code',
+                'code' => $code,
+                'redirect_uri' => 'http://localhost/dinero/callback',
+                'client_id' => config('dinero.client_id'),
+                'client_secret' => config('dinero.client_secret'),
+            ])->json();
     }
 }
