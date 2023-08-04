@@ -1,9 +1,9 @@
 # Visma Dinero - An expressive API wrapper for Dinero Accounting software
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/oncloud/visma-dinero.svg?style=flat-square)](https://packagist.org/packages/oncloud/visma-dinero)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/oncloud/visma-dinero/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/oncloud/visma-dinero/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/oncloud/visma-dinero/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/oncloud/visma-dinero/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/oncloud/visma-dinero.svg?style=flat-square)](https://packagist.org/packages/oncloud/visma-dinero)
 
 A Laravel wrapper which makes it easy to use the Visma Dinero API. It has an expressive and elegant syntax for working 
 with the Dinero API
