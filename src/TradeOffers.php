@@ -224,7 +224,7 @@ class TradeOffers
      */
     public function update($guid, $contactGuid, $timestamp, $productLines, $currency = null, $language = null, $externalReference = null, $description = null, $comment = null, $date = null, $address = null, $guidBody = null, $showLinesInclVat = null, $invoiceTemplateId = null)
     {
-        return Dinero::client()
+        return Dinero::client('v1.2')
             ->put('/tradeoffers/'.$guid, [
                 'contactGuid' => $contactGuid,
                 'timestamp' => $timestamp,
