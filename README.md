@@ -26,6 +26,10 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'client_id' => env('DINERO_CLIENT_ID'),
+    'client_secret' => env('DINERO_CLIENT_SECRET'),
+    'organization_id' => env('DINERO_ORGANIZATION_ID'),
+    'redirect_url' => 'http://localhost/dinero/callback',
 ];
 ```
 
@@ -38,7 +42,8 @@ redirect the user to the Visma Connect OAuth2 page, where they can login and aut
 logs in, they'll be redirected back to your application. You'll receive an access token, scope and iss.
 
 ### Refreshing the access token
-
+Use the `Dinero::refreshToken()` with the current `refresh_token` as a parameter method to refresh the access token. It'll 
+return a new `access_token`, `scope`, `expires_in`, `token_type` & `refresh_token`.
 
 ## Testing
 
