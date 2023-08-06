@@ -1,11 +1,7 @@
 {
     "name": "oncloud/visma-dinero",
     "description": "Laravel package for Visma Dinero",
-    "keywords": [
-        "OnCloud",
-        "laravel",
-        "Dinero"
-    ],
+    "keywords": ["OnCloud","laravel","Dinero"],
     "homepage": "https://github.com/oncloud/visma-dinero",
     "license": "MIT",
     "authors": [
