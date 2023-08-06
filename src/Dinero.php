@@ -36,11 +36,26 @@ class Dinero
     public function getAccessToken(string $code)
     {
         return Http::asForm()
-            ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
             ->post('https://connect.visma.com/connect/token', [
                 'grant_type' => 'authorization_code',
                 'code' => $code,
-                'redirect_uri' => 'http://localhost/dinero/callback',
+                'redirect_uri' => config('dinero.redirect_url'),
+                'client_id' => config('dinero.client_id'),
+                'client_secret' => config('dinero.client_secret'),
+            ])->json();
+    }
+
+    /**
+     * Refresh the access token
+     *
+     * @return array
+     */
+    public function refreshToken(string $refreshToken)
+    {
+        return Http::asForm()
+            ->post('https://connect.visma.com/connect/token', [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $refreshToken,
                 'client_id' => config('dinero.client_id'),
                 'client_secret' => config('dinero.client_secret'),
             ])->json();
