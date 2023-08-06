@@ -1,6 +1,6 @@
 {
     "name": "oncloud/visma-dinero",
-    "description": ":package_description",
+    "description": "Laravel package for Visma Dinero",
     "keywords": [
         "OnCloud",
         "laravel",
