@@ -35,7 +35,7 @@ class Dinero
      */
     public function getAccessToken(string $code)
     {
-        return Http::asForm()
+        $access =  Http::asForm()
             ->post('https://connect.visma.com/connect/token', [
                 'grant_type' => 'authorization_code',
                 'code' => $code,
@@ -43,6 +43,9 @@ class Dinero
                 'client_id' => config('dinero.client_id'),
                 'client_secret' => config('dinero.client_secret'),
             ])->json();
+
+        config(['dinero.access_token' => $access['access_token']]);
+        config(['dinero.refresh_token' => $access['refresh_token']]);
     }
 
     /**
