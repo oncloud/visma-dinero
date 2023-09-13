@@ -15,14 +15,13 @@ class Dinero
      */
     public function client(string $apiVersion = 'v1')
     {
-        if(!Cache::has('dinero_access_token')) {
+        if (! Cache::has('dinero_access_token')) {
             $this->getAccessToken();
         }
 
         return Http::withToken(Cache::get('dinero_access_token'))
             ->baseUrl(self::$baseUrl.$apiVersion.'/'.config('dinero.organization_id'));
     }
-
 
     /**
      * Exchange the code for an access token.
