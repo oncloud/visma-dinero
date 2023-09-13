@@ -17,7 +17,7 @@ class SalesCreditNote
         string $invoiceTemplateId = null, string $contactGuid = null)
     {
         return Dinero::client()
-            ->post('/vouchers/sales/creditnotes', [
+            ->post('/sales/creditnotes', [
                 'lines' => $lines,
                 'guid' => $guid,
                 'creditNoteFor' => $creditNoteFor,
@@ -59,7 +59,7 @@ class SalesCreditNote
                 'sort' => $sort,
                 'sortOrder' => $sortOrder,
             ])
-            ->get('/vouchers/sales/creditnotes')
+            ->get('/sales/creditnotes')
             ->json();
     }
 
@@ -74,7 +74,7 @@ class SalesCreditNote
         string $invoiceTemplateId = null, string $contactGuid = null)
     {
         return Dinero::client('v1.2')
-            ->put('/vouchers/sales/creditnotes/'.$guid, [
+            ->put('/sales/creditnotes/'.$guid, [
                 'lines' => $lines,
                 'timestamp' => $timestamp,
                 'creditNoteFor' => $creditNoteFor,
@@ -100,7 +100,7 @@ class SalesCreditNote
     public function delete(string $guid, string $timestamp = null)
     {
         return Dinero::client()
-            ->delete('/vouchers/sales/creditnotes/'.$guid, [
+            ->delete('/sales/creditnotes/'.$guid, [
                 'timestamp' => $timestamp,
             ])
             ->json();
@@ -114,7 +114,7 @@ class SalesCreditNote
     public function get(string $guid)
     {
         return Dinero::client()
-            ->get('/vouchers/sales/creditnotes/'.$guid)
+            ->get('/sales/creditnotes/'.$guid)
             ->json();
     }
 
@@ -126,7 +126,7 @@ class SalesCreditNote
     public function book(string $guid, string $timestamp, string $number = null)
     {
         return Dinero::client()
-            ->post('/vouchers/sales/creditnotes/'.$guid.'/book', [
+            ->post('/sales/creditnotes/'.$guid.'/book', [
                 'timestamp' => $timestamp,
                 'number' => $number,
             ])
@@ -143,7 +143,7 @@ class SalesCreditNote
         string $address = null, string $showLinesInclVat = null, string $invoiceTemplateId = null, string $contactGuid = null)
     {
         return Dinero::client()
-            ->post('/vouchers/sales/creditnotes/fetch', [
+            ->post('/sales/creditnotes/fetch', [
                 'lines' => $lines,
                 'creditNoteFor' => $creditNoteFor,
                 'currency' => $currency,
@@ -170,7 +170,7 @@ class SalesCreditNote
         string $subject = null, string $message = null)
     {
         return Dinero::client()
-            ->get('/vouchers/sales/creditnotes/'.$guid.'/email/template', [
+            ->get('/sales/creditnotes/'.$guid.'/email/template', [
                 'addVoucherAsPdfAttachment' => $addVoucherAsPdfAttachment,
                 'sender' => $sender,
                 'receiver' => $receiver,
@@ -190,7 +190,7 @@ class SalesCreditNote
         string $subject = null, string $message = null)
     {
         return Dinero::client()
-            ->post('/vouchers/sales/creditnotes/'.$guid.'/email/send', [
+            ->post('/sales/creditnotes/'.$guid.'/email/send', [
                 'addVoucherAsPdfAttachment' => $addVoucherAsPdfAttachment,
                 'sender' => $sender,
                 'receiver' => $receiver,
@@ -208,7 +208,7 @@ class SalesCreditNote
     public function getPdf(string $guid)
     {
         return Dinero::client()
-            ->get('/vouchers/sales/creditnotes/'.$guid.'/pdf')
+            ->get('/sales/creditnotes/'.$guid.'/pdf')
             ->json();
     }
 
@@ -220,7 +220,7 @@ class SalesCreditNote
     public function sendWithEan(string $guid, string $orderReference = null, string $attPerson = null, string $timestamp = null)
     {
         return Dinero::client()
-            ->post('/vouchers/sales/creditnotes/'.$guid.'/e-creditnote', [
+            ->post('/sales/creditnotes/'.$guid.'/e-creditnote', [
                 'orderReference' => $orderReference,
                 'attPerson' => $attPerson,
                 'timestamp' => $timestamp,
@@ -239,7 +239,7 @@ class SalesCreditNote
             ->withQueryParameters([
                 'changesSince' => $changesSince,
             ])
-            ->get('/vouchers/sales/creditnotes/'.$guid.'/mailouts')
+            ->get('/sales/creditnotes/'.$guid.'/mailouts')
             ->json();
     }
 }

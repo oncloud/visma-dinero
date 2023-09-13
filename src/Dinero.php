@@ -2,6 +2,7 @@
 
 namespace OnCloud\Dinero;
 
+use Cache;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
@@ -14,38 +15,32 @@ class Dinero
      */
     public function client(string $apiVersion = 'v1')
     {
-        return Http::withToken(config('dinero.access_token'))
+        if(!Cache::has('dinero_access_token')) {
+            $this->getAccessToken();
+        }
+
+        return Http::withToken(Cache::get('dinero_access_token'))
             ->baseUrl(self::$baseUrl.$apiVersion.'/'.config('dinero.organization_id'));
     }
 
-    /**
-     * Make a function to get a link for the user to login to Dinero.
-     *
-     * @return string
-     */
-    public function authenticate()
-    {
-        return redirect('https://connect.visma.com/connect/authorize?client_id='.config('dinero.client_id').'&response_mode=form_post&response_type=code&scope=dineropublicapi:read+dineropublicapi:write+offline_access&redirect_uri='.config('dinero.redirect_url', 'http://localhost/dinero/callback').'&ui_locales=da-DK');
-    }
 
     /**
      * Exchange the code for an access token.
      *
      * @return array
      */
-    public function getAccessToken(string $code)
+    public function getAccessToken()
     {
-        $access =  Http::asForm()
-            ->post('https://connect.visma.com/connect/token', [
-                'grant_type' => 'authorization_code',
-                'code' => $code,
-                'redirect_uri' => config('dinero.redirect_url'),
-                'client_id' => config('dinero.client_id'),
-                'client_secret' => config('dinero.client_secret'),
+        $access = Http::asForm()
+            ->withBasicAuth(config('dinero.client_id'), config('dinero.client_secret'))
+            ->post('https://authz.dinero.dk/dineroapi/oauth/token', [
+                'grant_type' => 'password',
+                'scope' => 'read write',
+                'username' => config('dinero.api_key'),
+                'password' => config('dinero.api_key'),
             ])->json();
 
-        config(['dinero.access_token' => $access['access_token']]);
-        config(['dinero.refresh_token' => $access['refresh_token']]);
+        Cache::add('dinero_access_token', $access['access_token'], $access['expires_in']);
     }
 
     /**

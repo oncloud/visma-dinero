@@ -256,7 +256,7 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function update(string $guid, array $productLine, string $currency = null, string $language = null,
+    public function update(string $guid, array $productLine, string $timestamp, string $currency = null, string $language = null,
         string $externalReference = null, string $description = null, string $comment = null,
         string $date = null, string $address = null, bool $showLinesInclVat = null,
         string $invoiceTemplateId = null, string $contactGuid = null, int $paymentConditionNumberOfDays = null,
@@ -282,6 +282,7 @@ class Invoices
                 'reminderInterestRate' => $reminderInterestRate,
                 'isMobilePayInvoiceEnabled' => $isMobilePayInvoiceEnabled,
                 'isPensoPayEnabled' => $isPensoPayEnabled,
+                'timestamp' => $timestamp,
             ])
             ->json();
     }
