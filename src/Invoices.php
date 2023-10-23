@@ -39,12 +39,11 @@ class Invoices
      *
      * @return mixed
      */
-    public function create(array $productLine, string $currency = null, string $language = null,
-        string $externalReference = null, string $description = null, string $comment = null,
-        string $date = null, string $address = null, string $guid = null, bool $showLinesInclVat = null,
-        string $invoiceTemplateId = null, string $contactGuid = null, int $paymentConditionNumberOfDays = null,
-        string $paymentConditionType = null, int $reminderFee = null, int $reminderInterestRate = null,
-        bool $isMobilePayInvoiceEnabled = null, bool $isPensoPayEnabled = null)
+    public function create(array $productLine, string $contactGuid = null, string $paymentConditionType = null,
+        int $paymentConditionNumberOfDays = null, string $currency = null, string $language = null, string $externalReference = null,
+        string $description = null, string $comment = null, string $date = null, string $address = null, string $guid = null,
+        bool $showLinesInclVat = null, string $invoiceTemplateId = null, int $reminderFee = null,
+        int $reminderInterestRate = null, bool $isMobilePayInvoiceEnabled = null, bool $isPensoPayEnabled = null)
     {
         return Dinero::client()
             ->post('/invoices', [
