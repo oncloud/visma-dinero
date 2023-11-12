@@ -31,8 +31,8 @@ class Reports
      *
      * @return mixed
      */
-    public function getResultReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-        string $includeSummeryAccount = null, string $includeLedgerEntries = null, string $showVatType = null)
+    public function getResultReport(string $accountYear, bool $showZeroAccount = false, bool $showAccountNo = false,
+        bool $includeSummeryAccount = false, bool $includeLedgerEntries = false, bool $showVatType = false)
     {
         return Dinero::client()
             ->withQueryParameters([
