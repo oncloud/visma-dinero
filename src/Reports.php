@@ -36,11 +36,11 @@ class Reports
     {
         return Dinero::client()
             ->withQueryParameters([
-                'showZeroAccount' => $showZeroAccount,
-                'showAccountNo' => $showAccountNo,
-                'includeSummeryAccount' => $includeSummeryAccount,
-                'includeLedgerEntries' => $includeLedgerEntries,
-                'showVatType' => $showVatType,
+                'showZeroAccount' => $showZeroAccount ? 'true' : 'false',
+                'showAccountNo' => $showAccountNo ? 'true' : 'false',
+                'includeSummeryAccount' => $includeSummeryAccount ? 'true' : 'false',
+                'includeLedgerEntries' => $includeLedgerEntries ? 'true' : 'false',
+                'showVatType' => $showVatType ? 'true' : 'false',
             ])
             ->get($accountYear.'/reports/result')
             ->json();
