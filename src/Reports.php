@@ -31,16 +31,16 @@ class Reports
      *
      * @return mixed
      */
-    public function getResultReport(string $accountYear, bool $showZeroAccount = false, bool $showAccountNo = false,
-        bool $includeSummeryAccount = false, bool $includeLedgerEntries = false, bool $showVatType = false)
+    public function getResultReport(string $accountYear, string $showZeroAccount = 'false', string $showAccountNo = 'false',
+        string $includeSummeryAccount = 'false', string $includeLedgerEntries = 'false', string $showVatType = 'false')
     {
         return Dinero::client()
             ->withQueryParameters([
-                'showZeroAccount' => $showZeroAccount ? 'true' : 'false',
-                'showAccountNo' => $showAccountNo ? 'true' : 'false',
-                'includeSummeryAccount' => $includeSummeryAccount ? 'true' : 'false',
-                'includeLedgerEntries' => $includeLedgerEntries ? 'true' : 'false',
-                'showVatType' => $showVatType ? 'true' : 'false',
+                'showZeroAccount' => $showZeroAccount,
+                'showAccountNo' => $showAccountNo,
+                'includeSummeryAccount' => $includeSummeryAccount,
+                'includeLedgerEntries' => $includeLedgerEntries,
+                'showVatType' => $showVatType,
             ])
             ->get($accountYear.'/reports/result')
             ->json();
