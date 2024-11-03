@@ -44,7 +44,7 @@ class Contacts
         string $email = null, string $webpage = null, string $attPerson = null,
         string $externalReference = null, string $paymentConditionType = null,
         int $paymentConditionNumberOfDays = null, string $vatNumber = null, string $eanNumber = null,
-        string $memberNumber = null, string $companyTypeKey = null, string $contactGuid = null): mixed
+        string $memberNumber = null, string $companyTypeKey = null, string $invoiceMailOutOptionKey = null, string $contactGuid = null): mixed
     {
         return Dinero::client()
             ->post('/contacts', [
@@ -67,6 +67,7 @@ class Contacts
                 'eanNumber' => $eanNumber,
                 'memberNumber' => $memberNumber,
                 'companyTypeKey' => $companyTypeKey,
+                'invoiceMailOutOptionKey' => $invoiceMailOutOptionKey,
                 'contactGuid' => $contactGuid,
             ])
             ->json();
