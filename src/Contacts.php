@@ -9,7 +9,7 @@ class Contacts
     /**
      * ListRetrieves a list of contacts for the organization ordered by UpdatedAt.
      */
-    public function list(string $fields = null, string $queryFilter = null, string $changesSince = null, string $deletedOnly = null, int $page = null, int $pageSize = null): mixed
+    public function list(?string $fields = null, ?string $queryFilter = null, ?string $changesSince = null, ?string $deletedOnly = null, ?int $page = null, ?int $pageSize = null): mixed
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -40,11 +40,11 @@ class Contacts
      * Add a new contact to the organization.
      */
     public function create(string $name, string $countryKey, bool $isPerson, bool $isMember, bool $useCvr,
-        string $street = null, string $zipCode = null, string $city = null, string $phone = null,
-        string $email = null, string $webpage = null, string $attPerson = null,
-        string $externalReference = null, string $paymentConditionType = null,
-        int $paymentConditionNumberOfDays = null, string $vatNumber = null, string $eanNumber = null,
-        string $memberNumber = null, string $companyTypeKey = null, string $invoiceMailOutOptionKey = null, string $contactGuid = null): mixed
+        ?string $street = null, ?string $zipCode = null, ?string $city = null, ?string $phone = null,
+        ?string $email = null, ?string $webpage = null, ?string $attPerson = null,
+        ?string $externalReference = null, ?string $paymentConditionType = null,
+        ?int $paymentConditionNumberOfDays = null, ?string $vatNumber = null, ?string $eanNumber = null,
+        ?string $memberNumber = null, ?string $companyTypeKey = null, ?string $invoiceMailOutOptionKey = null, ?string $contactGuid = null): mixed
     {
         return Dinero::client()
             ->post('/contacts', [
@@ -77,11 +77,11 @@ class Contacts
      * Updates an existing contact.
      */
     public function update(string $guid, string $name, string $countryKey, bool $isPerson, bool $isMember, bool $useCvr,
-        string $street = null, string $zipCode = null, string $city = null, string $phone = null,
-        string $email = null, string $webpage = null, string $attPerson = null,
-        string $externalReference = null, string $paymentConditionType = null,
-        int $paymentConditionNumberOfDays = null, string $vatNumber = null, string $eanNumber = null,
-        string $memberNumber = null, string $companyTypeKey = null): mixed
+        ?string $street = null, ?string $zipCode = null, ?string $city = null, ?string $phone = null,
+        ?string $email = null, ?string $webpage = null, ?string $attPerson = null,
+        ?string $externalReference = null, ?string $paymentConditionType = null,
+        ?int $paymentConditionNumberOfDays = null, ?string $vatNumber = null, ?string $eanNumber = null,
+        ?string $memberNumber = null, ?string $companyTypeKey = null): mixed
     {
         return Dinero::client()
             ->put('/contacts/'.$guid, [
@@ -137,7 +137,7 @@ class Contacts
      *
      * @return mixed
      */
-    public function listContactNotes(string $guid, string $fields = null, string $deletedOnly = null, int $page = null, int $pageSize = null)
+    public function listContactNotes(string $guid, ?string $fields = null, ?string $deletedOnly = null, ?int $page = null, ?int $pageSize = null)
     {
         return Dinero::client()
             ->withQueryParameters([

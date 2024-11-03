@@ -11,9 +11,9 @@ class Sales
      *
      * @return mixed
      */
-    public function list(string $startDate = null, string $endDate = null, string $fields = null, string $freeTextSearch = null,
-        string $statusFilter = null, string $queryFilter = null, string $changesSince = null, string $deletedOnly = null,
-        int $page = null, int $pageSize = null, string $sort = null, string $sortOrder = null)
+    public function list(?string $startDate = null, ?string $endDate = null, ?string $fields = null, ?string $freeTextSearch = null,
+        ?string $statusFilter = null, ?string $queryFilter = null, ?string $changesSince = null, ?string $deletedOnly = null,
+        ?int $page = null, ?int $pageSize = null, ?string $sort = null, ?string $sortOrder = null)
     {
         return Dinero::client()
             ->withQueryParameters([

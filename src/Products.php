@@ -24,8 +24,8 @@ class Products
      * @return array|mixed
      */
     public function update(string $guid, int $baseAmountValue, int $quantity, int $accountNumber, string $unit,
-        string $productNumber = null, string $name = null, string $externalReference = null,
-        string $comment = null)
+        ?string $productNumber = null, ?string $name = null, ?string $externalReference = null,
+        ?string $comment = null)
     {
         return Dinero::client()
             ->put('/products/'.$guid, [
@@ -58,8 +58,8 @@ class Products
      *
      * @return array|mixed
      */
-    public function list(string $fields = null, string $freeTextSeach = null, string $queryFilter = null, string $changesSince = null,
-        string $deletedOnly = null, int $page = 0, int $pageSize = 100)
+    public function list(?string $fields = null, ?string $freeTextSeach = null, ?string $queryFilter = null, ?string $changesSince = null,
+        ?string $deletedOnly = null, int $page = 0, int $pageSize = 100)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -80,8 +80,8 @@ class Products
      *
      * @return array|mixed
      */
-    public function create(int $baseAmountValue, int $quantity, int $accountNumber, string $unit, string $productNumber = null,
-        string $name = null, string $externalReference = null, string $comment = null)
+    public function create(int $baseAmountValue, int $quantity, int $accountNumber, string $unit, ?string $productNumber = null,
+        ?string $name = null, ?string $externalReference = null, ?string $comment = null)
     {
         return Dinero::client()
             ->post('/products', [

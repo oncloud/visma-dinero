@@ -11,10 +11,10 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function create(array $lines, string $guid = null, string $creditNoteFor = null, string $currency = null,
-        string $language = null, string $externalReference = null, string $description = null,
-        string $comment = null, string $date = null, string $address = null, string $showLinesInclVat = null,
-        string $invoiceTemplateId = null, string $contactGuid = null)
+    public function create(array $lines, ?string $guid = null, ?string $creditNoteFor = null, ?string $currency = null,
+        ?string $language = null, ?string $externalReference = null, ?string $description = null,
+        ?string $comment = null, ?string $date = null, ?string $address = null, ?string $showLinesInclVat = null,
+        ?string $invoiceTemplateId = null, ?string $contactGuid = null)
     {
         return Dinero::client()
             ->post('/sales/creditnotes', [
@@ -40,9 +40,9 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function list(string $startDate = null, string $endDate = null, string $fields = null, string $freeTextSearch = null,
-        string $statusFilter = null, string $queryFilter = null, string $changesSince = null, string $deletedOnly = null,
-        int $page = null, int $pageSize = null, string $sort = null, string $sortOrder = null)
+    public function list(?string $startDate = null, ?string $endDate = null, ?string $fields = null, ?string $freeTextSearch = null,
+        ?string $statusFilter = null, ?string $queryFilter = null, ?string $changesSince = null, ?string $deletedOnly = null,
+        ?int $page = null, ?int $pageSize = null, ?string $sort = null, ?string $sortOrder = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -68,10 +68,10 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function update(string $guid, array $lines, string $timestamp, string $creditNoteFor = null, string $currency = null,
-        string $language = null, string $externalReference = null, string $description = null,
-        string $comment = null, string $date = null, string $address = null, string $showLinesInclVat = null,
-        string $invoiceTemplateId = null, string $contactGuid = null)
+    public function update(string $guid, array $lines, string $timestamp, ?string $creditNoteFor = null, ?string $currency = null,
+        ?string $language = null, ?string $externalReference = null, ?string $description = null,
+        ?string $comment = null, ?string $date = null, ?string $address = null, ?string $showLinesInclVat = null,
+        ?string $invoiceTemplateId = null, ?string $contactGuid = null)
     {
         return Dinero::client('v1.2')
             ->put('/sales/creditnotes/'.$guid, [
@@ -97,7 +97,7 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function delete(string $guid, string $timestamp = null)
+    public function delete(string $guid, ?string $timestamp = null)
     {
         return Dinero::client()
             ->delete('/sales/creditnotes/'.$guid, [
@@ -123,7 +123,7 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function book(string $guid, string $timestamp, string $number = null)
+    public function book(string $guid, string $timestamp, ?string $number = null)
     {
         return Dinero::client()
             ->post('/sales/creditnotes/'.$guid.'/book', [
@@ -138,9 +138,9 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function getTotals(array $lines, string $creditNoteFor = null, string $currency = null, string $language = null,
-        string $externalReference = null, string $description = null, string $comment = null, string $date = null,
-        string $address = null, string $showLinesInclVat = null, string $invoiceTemplateId = null, string $contactGuid = null)
+    public function getTotals(array $lines, ?string $creditNoteFor = null, ?string $currency = null, ?string $language = null,
+        ?string $externalReference = null, ?string $description = null, ?string $comment = null, ?string $date = null,
+        ?string $address = null, ?string $showLinesInclVat = null, ?string $invoiceTemplateId = null, ?string $contactGuid = null)
     {
         return Dinero::client()
             ->post('/sales/creditnotes/fetch', [
@@ -166,8 +166,8 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function getEmailTemplate(string $guid, string $addVoucherAsPdfAttachment, string $sender = null, string $receiver = null,
-        string $subject = null, string $message = null)
+    public function getEmailTemplate(string $guid, string $addVoucherAsPdfAttachment, ?string $sender = null, ?string $receiver = null,
+        ?string $subject = null, ?string $message = null)
     {
         return Dinero::client()
             ->get('/sales/creditnotes/'.$guid.'/email/template', [
@@ -186,8 +186,8 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function send(string $guid, string $addVoucherAsPdfAttachment = null, string $sender = null, string $receiver = null,
-        string $subject = null, string $message = null)
+    public function send(string $guid, ?string $addVoucherAsPdfAttachment = null, ?string $sender = null, ?string $receiver = null,
+        ?string $subject = null, ?string $message = null)
     {
         return Dinero::client()
             ->post('/sales/creditnotes/'.$guid.'/email/send', [
@@ -217,7 +217,7 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function sendWithEan(string $guid, string $orderReference = null, string $attPerson = null, string $timestamp = null)
+    public function sendWithEan(string $guid, ?string $orderReference = null, ?string $attPerson = null, ?string $timestamp = null)
     {
         return Dinero::client()
             ->post('/sales/creditnotes/'.$guid.'/e-creditnote', [
@@ -233,7 +233,7 @@ class SalesCreditNote
      *
      * @return mixed
      */
-    public function listMailouts(string $guid, string $changesSince = null)
+    public function listMailouts(string $guid, ?string $changesSince = null)
     {
         return Dinero::client()
             ->withQueryParameters([

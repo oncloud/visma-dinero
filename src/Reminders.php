@@ -11,7 +11,7 @@ class Reminders
      *
      * @return mixed
      */
-    public function list(string $voucherGuid, string $changesSince = null)
+    public function list(string $voucherGuid, ?string $changesSince = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -27,8 +27,8 @@ class Reminders
      * @return mixed
      */
     public function create(string $voucherGuid, string $timestamp, string $date, string $withDebtCollectionWarning,
-        string $withFee, string $withInterestFee, string $withCompensationFee, string $title = null,
-        string $description = null)
+        string $withFee, string $withInterestFee, string $withCompensationFee, ?string $title = null,
+        ?string $description = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$voucherGuid.'/reminders', [
@@ -63,8 +63,8 @@ class Reminders
      * @return mixed
      */
     public function update(int $id, string $voucherGuid, string $timestamp, string $date, string $withDebtCollectionWarning,
-        string $withFee, string $withInterestFee, string $withCompensationFee, string $title = null,
-        string $description = null)
+        string $withFee, string $withInterestFee, string $withCompensationFee, ?string $title = null,
+        ?string $description = null)
     {
         return Dinero::client()
             ->put('/invoices/'.$voucherGuid.'/reminders/'.$id, [
@@ -154,8 +154,8 @@ class Reminders
      *
      * @return mixed
      */
-    public function sendEmail(string $voucherGuid, string $timestamp = null, string $sender = null, string $ccToSender = null,
-        string $receiver = null, string $subject = null, string $message = null, string $addVoucherAsPdfAttachment = null)
+    public function sendEmail(string $voucherGuid, ?string $timestamp = null, ?string $sender = null, ?string $ccToSender = null,
+        ?string $receiver = null, ?string $subject = null, ?string $message = null, ?string $addVoucherAsPdfAttachment = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$voucherGuid.'/reminders/email', [
@@ -175,7 +175,7 @@ class Reminders
      *
      * @return mixed
      */
-    public function sendEan(string $voucherGuid, int $id, string $timestamp = null, string $attPerson = null, string $receiverEanNumber = null)
+    public function sendEan(string $voucherGuid, int $id, ?string $timestamp = null, ?string $attPerson = null, ?string $receiverEanNumber = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$voucherGuid.'/reminders/'.$id.'/e-reminder', [

@@ -11,9 +11,9 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function create(string $purchaseType, array $lines, string $voucherDate = null, int $depositAccountNumber = null,
-        string $regionKey = null, string $fileGuid = null, string $contactGuid = null, string $paymentDate = null,
-        string $currencyKey = null, string $externalReference = null)
+    public function create(string $purchaseType, array $lines, ?string $voucherDate = null, ?int $depositAccountNumber = null,
+        ?string $regionKey = null, ?string $fileGuid = null, ?string $contactGuid = null, ?string $paymentDate = null,
+        ?string $currencyKey = null, ?string $externalReference = null)
     {
         return Dinero::client('v1.2')
             ->post('/vouchers/purchase/'.$purchaseType, [
@@ -35,9 +35,9 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function getTotals(string $purchaseType, array $lines, string $voucherDate = null, int $depositAccountNumber = null,
-        string $regionKey = null, string $fileGuid = null, string $contactGuid = null, string $paymentDate = null,
-        string $currencyKey = null, string $externalReference = null)
+    public function getTotals(string $purchaseType, array $lines, ?string $voucherDate = null, ?int $depositAccountNumber = null,
+        ?string $regionKey = null, ?string $fileGuid = null, ?string $contactGuid = null, ?string $paymentDate = null,
+        ?string $currencyKey = null, ?string $externalReference = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/fetch', [
@@ -59,9 +59,9 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function getSimilar(string $purchaseType, array $lines, string $voucherDate = null, int $depositAccountNumber = null,
-        string $regionKey = null, string $fileGuid = null, string $contactGuid = null, string $paymentDate = null,
-        string $currencyKey = null, string $externalReference = null)
+    public function getSimilar(string $purchaseType, array $lines, ?string $voucherDate = null, ?int $depositAccountNumber = null,
+        ?string $regionKey = null, ?string $fileGuid = null, ?string $contactGuid = null, ?string $paymentDate = null,
+        ?string $currencyKey = null, ?string $externalReference = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/similar', [
@@ -96,8 +96,8 @@ class PurchaseVouchers
      * @return mixed
      */
     public function update(string $guid, array $lines, string $voucherDate, string $timestamp, string $contactGuid, string $purchaseType,
-        int $depositAccountNumber = null, string $regionKey = null, string $fileGuid = null, string $paymentDate = null,
-        string $currencyKey = null, string $externalReference = null)
+        ?int $depositAccountNumber = null, ?string $regionKey = null, ?string $fileGuid = null, ?string $paymentDate = null,
+        ?string $currencyKey = null, ?string $externalReference = null)
     {
         return Dinero::client('v1.1')
             ->put('/vouchers/purchase/'.$guid, [
@@ -121,7 +121,7 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function delete(string $guid, string $timestamp = null)
+    public function delete(string $guid, ?string $timestamp = null)
     {
         return Dinero::client()
             ->delete('/vouchers/purchase/'.$guid, [
@@ -147,7 +147,7 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function book(string $guid, string $timestamp, int $number = null)
+    public function book(string $guid, string $timestamp, ?int $number = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/'.$guid.'/book', [
@@ -162,7 +162,7 @@ class PurchaseVouchers
      *
      * @return mixed
      */
-    public function creditNote(string $guid, string $timestamp, string $voucherDate = null, string $fileGuid = null)
+    public function creditNote(string $guid, string $timestamp, ?string $voucherDate = null, ?string $fileGuid = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/'.$guid.'/generate-creditnote', [

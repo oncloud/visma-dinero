@@ -11,7 +11,7 @@ class ManuelVouchers
      *
      * @return mixed
      */
-    public function create(string $date = null, array $lines = null, string $fileGuid = null, string $externalReference = null)
+    public function create(?string $date = null, ?array $lines = null, ?string $fileGuid = null, ?string $externalReference = null)
     {
         return Dinero::client()
             ->post('/vouchers/manual', [
@@ -40,8 +40,8 @@ class ManuelVouchers
      *
      * @return array|mixed
      */
-    public function update(string $guid, string $timestamp, string $voucherDate = null, array $lines = null,
-        string $fileGuid = null, string $externalReference = null)
+    public function update(string $guid, string $timestamp, ?string $voucherDate = null, ?array $lines = null,
+        ?string $fileGuid = null, ?string $externalReference = null)
     {
         return Dinero::client()
             ->put('/vouchers/manual/'.$guid, [
@@ -73,7 +73,7 @@ class ManuelVouchers
      *
      * @return array|mixed
      */
-    public function book(string $guid, string $timestamp, string $number = null)
+    public function book(string $guid, string $timestamp, ?string $number = null)
     {
         return Dinero::client()
             ->post('/vouchers/manual/'.$guid.'/book', [

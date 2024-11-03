@@ -23,7 +23,7 @@ class Files
      *
      * @return mixed
      */
-    public function list(array $extensions = [], string $uploadedBefore = null, string $uploadedAfter = null, int $fileStatus = null, int $page = null, int $pageSize = null)
+    public function list(array $extensions = [], ?string $uploadedBefore = null, ?string $uploadedAfter = null, ?int $fileStatus = null, ?int $page = null, ?int $pageSize = null)
     {
         return Dinero::client()
             ->withQueryParameters([

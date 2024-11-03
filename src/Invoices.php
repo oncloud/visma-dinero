@@ -9,10 +9,10 @@ class Invoices
     /**
      * List invoices. Retrieve a list of invoices for the organization.
      */
-    public function list(string $startDate = null, string $endDate = null, string $fields = null,
-        string $freeTextSearch = null, string $statusFilter = null, string $queryFilter = null,
-        string $changesSince = null, string $deletedOnly = null, int $page = null, int $pageSize = null,
-        string $sort = null, string $sortOrder = null)
+    public function list(?string $startDate = null, ?string $endDate = null, ?string $fields = null,
+        ?string $freeTextSearch = null, ?string $statusFilter = null, ?string $queryFilter = null,
+        ?string $changesSince = null, ?string $deletedOnly = null, ?int $page = null, ?int $pageSize = null,
+        ?string $sort = null, ?string $sortOrder = null)
     {
         return Dinero::client()
             //->dd()
@@ -39,11 +39,11 @@ class Invoices
      *
      * @return mixed
      */
-    public function create(array $productLine, string $contactGuid = null, string $paymentConditionType = null,
-        int $paymentConditionNumberOfDays = null, string $currency = null, string $language = null, string $externalReference = null,
-        string $description = null, string $comment = null, string $date = null, string $address = null, string $guid = null,
-        bool $showLinesInclVat = null, string $invoiceTemplateId = null, int $reminderFee = null,
-        int $reminderInterestRate = null, bool $isMobilePayInvoiceEnabled = null, bool $isPensoPayEnabled = null)
+    public function create(array $productLine, ?string $contactGuid = null, ?string $paymentConditionType = null,
+        ?int $paymentConditionNumberOfDays = null, ?string $currency = null, ?string $language = null, ?string $externalReference = null,
+        ?string $description = null, ?string $comment = null, ?string $date = null, ?string $address = null, ?string $guid = null,
+        ?bool $showLinesInclVat = null, ?string $invoiceTemplateId = null, ?int $reminderFee = null,
+        ?int $reminderInterestRate = null, ?bool $isMobilePayInvoiceEnabled = null, ?bool $isPensoPayEnabled = null)
     {
         return Dinero::client()
             ->post('/invoices', [
@@ -74,12 +74,12 @@ class Invoices
      *
      * @return mixed
      */
-    public function fetch(array $productLine, string $currency = null, string $language = null,
-        string $externalReference = null, string $description = null, string $comment = null,
-        string $date = null, string $address = null, string $guid = null, bool $showLinesInclVat = null,
-        string $invoiceTemplateId = null, string $contactGuid = null, int $paymentConditionNumberOfDays = null,
-        string $paymentConditionType = null, int $reminderFee = null, int $reminderInterestRate = null,
-        bool $isMobilePayInvoiceEnabled = null, bool $isPensoPayEnabled = null)
+    public function fetch(array $productLine, ?string $currency = null, ?string $language = null,
+        ?string $externalReference = null, ?string $description = null, ?string $comment = null,
+        ?string $date = null, ?string $address = null, ?string $guid = null, ?bool $showLinesInclVat = null,
+        ?string $invoiceTemplateId = null, ?string $contactGuid = null, ?int $paymentConditionNumberOfDays = null,
+        ?string $paymentConditionType = null, ?int $reminderFee = null, ?int $reminderInterestRate = null,
+        ?bool $isMobilePayInvoiceEnabled = null, ?bool $isPensoPayEnabled = null)
     {
         return Dinero::client()
             ->post('/invoices/fetch', [
@@ -148,7 +148,7 @@ class Invoices
      *
      * @return mixed
      */
-    public function book(string $invoiceGuid, string $timestamp, int $number = null)
+    public function book(string $invoiceGuid, string $timestamp, ?int $number = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$invoiceGuid.'/book', [
@@ -164,8 +164,8 @@ class Invoices
      *
      * @return mixed
      */
-    public function sendEmail(string $invoiceGuid, string $timestamp = null, string $sender = null, string $receiver = null,
-        string $subject = null, string $message = null, bool $addVoucherAsPdfAttachment = null)
+    public function sendEmail(string $invoiceGuid, ?string $timestamp = null, ?string $sender = null, ?string $receiver = null,
+        ?string $subject = null, ?string $message = null, ?bool $addVoucherAsPdfAttachment = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$invoiceGuid.'/email', [
@@ -211,9 +211,9 @@ class Invoices
      * reminding the customer, that the invoice is overdue. This will not cause a reminder to be created in Dinero,
      * this is only a mailout.
      */
-    public function sendPreReminder(string $guid, string $timestamp = null, string $sender = null,
-        bool $ccToSender = null, string $receiver = null, string $subject = null,
-        string $message = null, bool $addVoucherAsPdfAttachment = null)
+    public function sendPreReminder(string $guid, ?string $timestamp = null, ?string $sender = null,
+        ?bool $ccToSender = null, ?string $receiver = null, ?string $subject = null,
+        ?string $message = null, ?bool $addVoucherAsPdfAttachment = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$guid.'/pre-reminder', [
@@ -235,8 +235,8 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function sendWithEan(string $guid, string $orderReference = null, string $attPerson = null,
-        string $timestamp = null, string $receiverEanNumber = null)
+    public function sendWithEan(string $guid, ?string $orderReference = null, ?string $attPerson = null,
+        ?string $timestamp = null, ?string $receiverEanNumber = null)
     {
         return Dinero::client('v2')
             ->post('/invoices/'.$guid.'/with-ean', [
@@ -255,12 +255,12 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function update(string $guid, array $productLine, string $timestamp, string $currency = null, string $language = null,
-        string $externalReference = null, string $description = null, string $comment = null,
-        string $date = null, string $address = null, bool $showLinesInclVat = null,
-        string $invoiceTemplateId = null, string $contactGuid = null, int $paymentConditionNumberOfDays = null,
-        string $paymentConditionType = null, int $reminderFee = null, int $reminderInterestRate = null,
-        bool $isMobilePayInvoiceEnabled = null, bool $isPensoPayEnabled = null)
+    public function update(string $guid, array $productLine, string $timestamp, ?string $currency = null, ?string $language = null,
+        ?string $externalReference = null, ?string $description = null, ?string $comment = null,
+        ?string $date = null, ?string $address = null, ?bool $showLinesInclVat = null,
+        ?string $invoiceTemplateId = null, ?string $contactGuid = null, ?int $paymentConditionNumberOfDays = null,
+        ?string $paymentConditionType = null, ?int $reminderFee = null, ?int $reminderInterestRate = null,
+        ?bool $isMobilePayInvoiceEnabled = null, ?bool $isPensoPayEnabled = null)
     {
         return Dinero::client('v1.2')
             ->put('/invoices/'.$guid, [
@@ -291,7 +291,7 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function addPayment(string $guid, string $description, int $amount, string $timestamp, int $depositAccountNumber, bool $remainderIsFee, string $externalReference = null, string $paymentDate = null, int $amountInForeignCurrency = null)
+    public function addPayment(string $guid, string $description, int $amount, string $timestamp, int $depositAccountNumber, bool $remainderIsFee, ?string $externalReference = null, ?string $paymentDate = null, ?int $amountInForeignCurrency = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$guid.'/payments', [
@@ -312,7 +312,7 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function deletePayment(string $guid, string $paymentGuid, string $timestamp = null)
+    public function deletePayment(string $guid, string $paymentGuid, ?string $timestamp = null)
     {
         return Dinero::client()
             ->delete('/invoices/'.$guid.'/payments/'.$paymentGuid, [
@@ -340,7 +340,7 @@ class Invoices
      *
      * @return array|mixed
      */
-    public function createCreditNote(string $guid, string $timestamp = null)
+    public function createCreditNote(string $guid, ?string $timestamp = null)
     {
         return Dinero::client()
             ->post('/invoices/'.$guid.'/generate-creditnote', [
@@ -364,7 +364,7 @@ class Invoices
     /**
      * List mailouts.
      */
-    public function listMailouts(string $guid, string $changesSince = null, bool $includeSms = null)
+    public function listMailouts(string $guid, ?string $changesSince = null, ?bool $includeSms = null)
     {
         return Dinero::client()
             ->withQueryParameters([

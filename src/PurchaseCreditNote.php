@@ -11,8 +11,8 @@ class PurchaseCreditNote
      *
      * @return mixed
      */
-    public function create(array $lines, string $guid = null, string $creditNoteFor = null, string $fileGuid = null,
-        string $contactGuid = null, string $date = null, string $currency = null)
+    public function create(array $lines, ?string $guid = null, ?string $creditNoteFor = null, ?string $fileGuid = null,
+        ?string $contactGuid = null, ?string $date = null, ?string $currency = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/creditnotes', [
@@ -44,8 +44,8 @@ class PurchaseCreditNote
      *
      * @return mixed
      */
-    public function update(string $guid, array $lines, string $timestamp, string $creditNoteFor = null, string $fileGuid = null,
-        string $contactGuid = null, string $date = null, string $currency = null)
+    public function update(string $guid, array $lines, string $timestamp, ?string $creditNoteFor = null, ?string $fileGuid = null,
+        ?string $contactGuid = null, ?string $date = null, ?string $currency = null)
     {
         return Dinero::client()
             ->put('/vouchers/purchase/creditnotes/'.$guid, [
@@ -65,7 +65,7 @@ class PurchaseCreditNote
      *
      * @return mixed
      */
-    public function delete(string $guid, string $timestamp = null)
+    public function delete(string $guid, ?string $timestamp = null)
     {
         return Dinero::client()
             ->delete('/vouchers/purchase/creditnotes/'.$guid, [
@@ -79,7 +79,7 @@ class PurchaseCreditNote
      *
      * @return array|mixed
      */
-    public function book(string $guid, string $timestamp, string $number = null)
+    public function book(string $guid, string $timestamp, ?string $number = null)
     {
         return Dinero::client()
             ->post('/vouchers/purchase/creditnotes/'.$guid.'/book', [

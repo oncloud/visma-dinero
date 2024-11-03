@@ -11,8 +11,8 @@ class Reports
      *
      * @return mixed
      */
-    public function getSaldoBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-        string $includeSummeryAccount = null, string $includeLedgerEntries = null, string $showVatType = null)
+    public function getSaldoBalanceReport(string $accountYear, ?string $showZeroAccount = null, ?string $showAccountNo = null,
+        ?string $includeSummeryAccount = null, ?string $includeLedgerEntries = null, ?string $showVatType = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -51,8 +51,8 @@ class Reports
      *
      * @return mixed
      */
-    public function getPrimoBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-        string $includeSummeryAccount = null, string $showVatType = null)
+    public function getPrimoBalanceReport(string $accountYear, ?string $showZeroAccount = null, ?string $showAccountNo = null,
+        ?string $includeSummeryAccount = null, ?string $showVatType = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -70,8 +70,8 @@ class Reports
      *
      * @return mixed
      */
-    public function getBalanceReport(string $accountYear, string $showZeroAccount = null, string $showAccountNo = null,
-        string $includeSummeryAccount = null, string $includeLedgerEntries = null, string $showVatType = null)
+    public function getBalanceReport(string $accountYear, ?string $showZeroAccount = null, ?string $showAccountNo = null,
+        ?string $includeSummeryAccount = null, ?string $includeLedgerEntries = null, ?string $showVatType = null)
     {
         return Dinero::client()
             ->withQueryParameters([

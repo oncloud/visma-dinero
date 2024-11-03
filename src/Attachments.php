@@ -2,6 +2,4 @@
 
 namespace OnCloud\Dinero;
 
-class Attachments
-{
-}
+class Attachments {}

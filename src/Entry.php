@@ -9,7 +9,7 @@ class Entry
     /**
      * List entries. Get a list of Entries for a given period.
      */
-    public function list(string $fromDate = null, string $toDate = null, string $includePrimo = null)
+    public function list(?string $fromDate = null, ?string $toDate = null, ?string $includePrimo = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -28,7 +28,7 @@ class Entry
      * entry will be the same for a given pair of an account and an accounting year, i.e. the guid of a primo entry on
      * account 2000 in 2018 will never change, but the value might be updated.
      */
-    public function listChanges(string $fromDate = null, string $toDate = null, string $includePrimo = null)
+    public function listChanges(?string $fromDate = null, ?string $toDate = null, ?string $includePrimo = null)
     {
         return Dinero::client()
             ->withQueryParameters([

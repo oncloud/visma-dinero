@@ -10,7 +10,7 @@ class ContactStateOfAccount
      * Get the contacts state of account. Returns the income, expenses and related entries for a contact in the given
      * period (or all time if no period is defined).
      */
-    public function get(string $guid, string $fromDate = null, string $toDate = null, string $hideClosed = null): mixed
+    public function get(string $guid, ?string $fromDate = null, ?string $toDate = null, ?string $hideClosed = null): mixed
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -26,7 +26,7 @@ class ContactStateOfAccount
      * Get the contacts state of account as a PDF. Returns the income, expenses and related entries for a contact in the
      * given period (or all time if no period is defined).
      */
-    public function getPdf(string $guid, string $fromDate = null, string $toDate = null, string $hideClosed = null): mixed
+    public function getPdf(string $guid, ?string $fromDate = null, ?string $toDate = null, ?string $hideClosed = null): mixed
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -43,7 +43,7 @@ class ContactStateOfAccount
      *
      * @return void
      */
-    public function email(string $guid, string $ccToSender, string $hideClose, string $receiver = null, string $subject = null, string $message = null, string $to = null)
+    public function email(string $guid, string $ccToSender, string $hideClose, ?string $receiver = null, ?string $subject = null, ?string $message = null, ?string $to = null)
     {
         Dinero::client()
             ->post('/state-of-account/'.$guid.'/email', [

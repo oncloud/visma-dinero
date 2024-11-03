@@ -11,7 +11,7 @@ class LedgerItems
      *
      * @return mixed
      */
-    public function get(string $id, string $version = null)
+    public function get(string $id, ?string $version = null)
     {
         return Dinero::client()
             ->post('/ledgeritems/ledgers/', [
@@ -26,7 +26,7 @@ class LedgerItems
      *
      * @return mixed
      */
-    public function add(string $id = null, string $version = null, int $voucherNumber = null, string $voucherDate = null, string $fileGuid = null, array $lines = [])
+    public function add(?string $id = null, ?string $version = null, ?int $voucherNumber = null, ?string $voucherDate = null, ?string $fileGuid = null, array $lines = [])
     {
         return Dinero::client('v1.2')
             ->post('/ledgeritems/', [
@@ -45,7 +45,7 @@ class LedgerItems
      *
      * @return mixed
      */
-    public function update(string $id = null, string $version = null, int $voucherNumber = null, string $voucherDate = null, string $fileGuid = null, array $lines = [])
+    public function update(?string $id = null, ?string $version = null, ?int $voucherNumber = null, ?string $voucherDate = null, ?string $fileGuid = null, array $lines = [])
     {
         return Dinero::client()
             ->put('/ledgeritems/', [
@@ -65,7 +65,7 @@ class LedgerItems
      *
      * @return array|mixed
      */
-    public function book(string $id, string $version = null)
+    public function book(string $id, ?string $version = null)
     {
         return Dinero::client()
             ->post('/ledgeritems/book/', [
@@ -94,7 +94,7 @@ class LedgerItems
      *
      * @return array|mixed
      */
-    public function delete(string $id, string $version = null)
+    public function delete(string $id, ?string $version = null)
     {
         return Dinero::client()
             ->delete('/ledgeritems/delete', [

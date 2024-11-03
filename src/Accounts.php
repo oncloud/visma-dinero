@@ -11,7 +11,7 @@ class Accounts
      *
      * @return array|mixed
      */
-    public function getEntry(string $fields = null, string $categoryFilter = null)
+    public function getEntry(?string $fields = null, ?string $categoryFilter = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -27,7 +27,7 @@ class Accounts
      *
      * @return array|mixed
      */
-    public function getPurchase(string $fields = null)
+    public function getPurchase(?string $fields = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -42,7 +42,7 @@ class Accounts
      *
      * @return array|mixed
      */
-    public function getDeposit(string $fields = null)
+    public function getDeposit(?string $fields = null)
     {
         return Dinero::client()
             ->withQueryParameters([
@@ -80,7 +80,7 @@ class Accounts
      *
      * @return array|mixed
      */
-    public function createDeposit(int $number, string $name, string $registrationNumber = null, string $accountNumber = null, string $swiftNumber = null, string $ibanNumber = null)
+    public function createDeposit(int $number, string $name, ?string $registrationNumber = null, ?string $accountNumber = null, ?string $swiftNumber = null, ?string $ibanNumber = null)
     {
         return Dinero::client()
             ->post('/accounts/deposit', [

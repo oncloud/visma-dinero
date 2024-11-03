@@ -24,7 +24,7 @@ class PurchaseVoucherCreditPayments
      * @return mixed
      */
     public function create(string $id, int $amount, string $depositAccountNumber, string $description, string $timestamp,
-        string $externalReference = null, string $paymentDate = null, int $amountInForeignCurrency = null)
+        ?string $externalReference = null, ?string $paymentDate = null, ?int $amountInForeignCurrency = null)
     {
         return Dinero::client()
             ->post('/purchase-vouchers/'.$id.'/payments', [
