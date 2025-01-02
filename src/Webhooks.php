@@ -2,24 +2,22 @@
 
 namespace OnCloud\Dinero;
 
-use OnCloud\Dinero\Dinero;
-
 class Webhooks
 {
-    public function subscribe(string $uri = null, string $eventId = null)
+    public function subscribe(?string $uri = null, ?string $eventId = null)
     {
         return Dinero::client()
             ->post('/webhooks/subscribe', [
                 'uri' => $uri,
-                'eventId' => $eventId
+                'eventId' => $eventId,
             ]);
     }
 
-    public function unsubscribe(string $eventId = null)
+    public function unsubscribe(?string $eventId = null)
     {
         return Dinero::client()
             ->delete('/webhooks/unsubscribe', [
-                'eventId' => $eventId
+                'eventId' => $eventId,
             ]);
     }
 

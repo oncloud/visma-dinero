@@ -15,7 +15,7 @@ class Invoices
         ?string $sort = null, ?string $sortOrder = null)
     {
         return Dinero::client()
-            //->dd()
+            // ->dd()
             ->withQueryParameters([
                 'startDate' => $startDate,
                 'endDate' => $endDate,
